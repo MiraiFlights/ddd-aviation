@@ -3,6 +3,7 @@
 namespace ddd\aviation\values;
 
 use ddd\domain\values\AbstractDomainValue;
+use ddd\aviation\interfaces\TimeConvertableInterface;
 
 final class AircraftServiceTime extends AbstractDomainValue implements TimeConvertableInterface
 {
