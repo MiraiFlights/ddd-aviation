@@ -18,5 +18,5 @@ interface TimeConvertableInterface
 
     public static function fromHours(float $value): self;
 
-    public function fromString(string $value): self;
+    public static function fromString(string $value): self;
 }
