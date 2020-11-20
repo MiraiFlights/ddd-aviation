@@ -8,7 +8,10 @@ class Flight
     private ICAO $arrivalICAO;
     private Pax $pax;
     private Luggage $luggage;
-    private \DateTimeInterface $date;
+    private \DateTimeInterface $departureDate;
+
+    private ?\DateTimeInterface $arrivalDate = null;
+    private ?AirwayTime $airwayTime = null;
 
     /**
      * Flight constructor.
@@ -16,15 +19,15 @@ class Flight
      * @param ICAO $arrivalICAO
      * @param Pax $pax
      * @param Luggage $luggage
-     * @param \DateTimeInterface $date
+     * @param \DateTimeInterface $departureDate
      */
-    public function __construct(ICAO $departureICAO, ICAO $arrivalICAO, Pax $pax, Luggage $luggage, \DateTimeInterface $date)
+    public function __construct(ICAO $departureICAO, ICAO $arrivalICAO, Pax $pax, Luggage $luggage, \DateTimeInterface $departureDate)
     {
         $this->departureICAO = $departureICAO;
         $this->arrivalICAO = $arrivalICAO;
         $this->pax = $pax;
         $this->luggage = $luggage;
-        $this->date = $date;
+        $this->departureDate = $departureDate;
     }
 
     /**
@@ -52,18 +55,50 @@ class Flight
     }
 
     /**
-     * @return \DateTimeInterface
-     */
-    public function getDate(): \DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    /**
      * @return Luggage
      */
     public function getLuggage(): Luggage
     {
         return $this->luggage;
+    }
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function getDepartureDate(): \DateTimeInterface
+    {
+        return $this->departureDate;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getArrivalDate(): ?\DateTimeInterface
+    {
+        return $this->arrivalDate;
+    }
+
+    /**
+     * @return AirwayTime|null
+     */
+    public function getAirwayTime(): ?AirwayTime
+    {
+        return $this->airwayTime;
+    }
+
+    /**
+     * @param \DateTimeInterface|null $arrivalDate
+     */
+    public function setArrivalDate(?\DateTimeInterface $arrivalDate): void
+    {
+        $this->arrivalDate = $arrivalDate;
+    }
+
+    /**
+     * @param AirwayTime|null $airwayTime
+     */
+    public function setAirwayTime(?AirwayTime $airwayTime): void
+    {
+        $this->airwayTime = $airwayTime;
     }
 }
