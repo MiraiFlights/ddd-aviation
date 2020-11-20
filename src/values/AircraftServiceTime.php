@@ -2,8 +2,8 @@
 
 namespace ddd\aviation\values;
 
-use ddd\domain\values\AbstractDomainValue;
 use ddd\aviation\interfaces\TimeConvertableInterface;
+use ddd\domain\values\AbstractDomainValue;
 
 final class AircraftServiceTime extends AbstractDomainValue implements TimeConvertableInterface
 {
@@ -43,7 +43,7 @@ final class AircraftServiceTime extends AbstractDomainValue implements TimeConve
 
     public static function fromSeconds(int $value): self
     {
-        return new self(intval($value * 60));
+        return new self(intval($value / 60));
 
     }
 
@@ -54,6 +54,19 @@ final class AircraftServiceTime extends AbstractDomainValue implements TimeConve
 
     public static function fromHours(float $value): self
     {
-        return new self($value / 60);
+        return new self(intval($value * 60));
+    }
+
+    public function asString(): string
+    {
+        $seconds = $this->inSeconds();
+        return sprintf('%02d:%02d:%02d', ($seconds / 3600), ($seconds / 60 % 60), $seconds % 60);
+    }
+
+    public function fromString(string $value): self
+    {
+        $parts = explode(':', $value, 3);
+        $seconds = ((int)$parts[0] * 60 + (int)$parts[1]) * 60 + (int)$parts[2];
+        return self::fromSeconds($seconds);
     }
 }

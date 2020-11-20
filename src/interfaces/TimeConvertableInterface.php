@@ -10,9 +10,13 @@ interface TimeConvertableInterface
 
     public function inHours(): float;
 
+    public function asString(): string;
+
     public static function fromSeconds(int $value): self;
 
     public static function fromMinutes(float $value): self;
 
     public static function fromHours(float $value): self;
+
+    public function fromString(string $value): self;
 }

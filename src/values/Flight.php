@@ -88,17 +88,21 @@ class Flight
 
     /**
      * @param \DateTimeInterface|null $arrivalDate
+     * @return Flight
      */
-    public function setArrivalDate(?\DateTimeInterface $arrivalDate): void
+    public function setArrivalDate(?\DateTimeInterface $arrivalDate): Flight
     {
         $this->arrivalDate = $arrivalDate;
+        return $this;
     }
 
     /**
      * @param AirwayTime|null $airwayTime
+     * @return Flight
      */
-    public function setAirwayTime(?AirwayTime $airwayTime): void
+    public function setAirwayTime(?AirwayTime $airwayTime): Flight
     {
         $this->airwayTime = $airwayTime;
+        return $this;
     }
 }
