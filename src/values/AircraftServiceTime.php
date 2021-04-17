@@ -44,7 +44,6 @@ final class AircraftServiceTime extends AbstractDomainValue implements TimeConve
     public static function fromSeconds(int $value): self
     {
         return new self(intval($value / 60));
-
     }
 
     public static function fromMinutes(float $value): self
