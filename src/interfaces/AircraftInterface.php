@@ -4,5 +4,7 @@ namespace ddd\aviation\interfaces;
 
 interface AircraftInterface
 {
+    public function getId();
 
+    public function getProperties(): AircraftPropertiesInterface;
 }
