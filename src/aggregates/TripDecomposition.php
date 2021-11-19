@@ -16,12 +16,13 @@ class TripDecomposition
         $this->flights = $flights;
     }
 
-    public function addFlight(?FlightDecomposition $flight)
+    public function addFlight(?FlightDecomposition $flight): self
     {
         if (null === $flight)
-            return;
+            return $this;
 
         $this->flights[] = $flight;
+        return $this;
     }
 
     /**
