@@ -4,7 +4,7 @@ namespace ddd\aviation\aggregates;
 
 use ddd\aviation\interfaces\AircraftInterface;
 
-class TripDecomposition
+class TripDecomposition implements \JsonSerializable
 {
     /** @var FlightDecomposition[] */
     private array $flights = [];
@@ -85,6 +85,17 @@ class TripDecomposition
         return !$legs[0]->getRoute()->getDepartureICAO()->isEqualTo(
             $legs[1]->getRoute()->getArrivalICAO()
         );
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'flights' => $this->getFlights(),
+            'aircraft' => $this->getAircraft(),
+        ];
     }
 }
 

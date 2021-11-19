@@ -5,7 +5,7 @@ namespace ddd\aviation\aggregates;
 use ddd\aviation\interfaces\TimeConvertableInterface;
 use ddd\aviation\values;
 
-class Route
+class Route implements \JsonSerializable
 {
     private values\ICAO $departureICAO;
     private values\ICAO $arrivalICAO;
@@ -155,5 +155,21 @@ class Route
     public function isEmpty(): bool
     {
         return $this->getPax()->getValue() === 0;
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'departureICAO' => $this->getDepartureICAO()->getValue(),
+            'arrivalICAO' => $this->getArrivalICAO()->getValue(),
+            'pax' => $this->getPax()->getValue(),
+            'luggage' => $this->getPax()->getValue(),
+            'fuelStops' => $this->getFuelStops()->getValue(),
+            'airwayTime' => $this->getAirwayTime() ? $this->getAirwayTime()->asString() : null,
+            'refuelTime' => $this->getRefuelTime() ? $this->getRefuelTime()->asString() : null,
+        ];
     }
 }

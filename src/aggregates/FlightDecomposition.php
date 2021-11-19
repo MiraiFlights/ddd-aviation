@@ -7,7 +7,7 @@ use ddd\aviation\interfaces\TimeConvertableInterface;
 use ddd\aviation\values\AircraftServiceTime;
 use ddd\aviation\exceptions\RouteNotFoundException;
 
-class FlightDecomposition
+class FlightDecomposition implements \JsonSerializable
 {
     private Route $route;
     private AircraftInterface $aircraft;
@@ -122,5 +122,18 @@ class FlightDecomposition
         }
 
         return $result;
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'route' => $this->getRoute(),
+            'aircraft' => $this->getAircraft(),
+            'departureDate' => $this->getDepartureDate()->format('Y-m-d H:i:s'),
+            'parkingInterval' => $this->getParkingInterval() ? $this->getParkingInterval()->asString() : null,
+        ];
     }
 }
