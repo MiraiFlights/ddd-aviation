@@ -144,8 +144,8 @@ class Route implements \JsonSerializable
      */
     public function getTotalTime(): values\AirwayTime
     {
-        return new values\AirwayTime(
-            $this->airwayTime->getValue() + $this->refuelTime->getValue()
+        return values\AirwayTime::fromHours(
+            $this->airwayTime->inHours() + $this->refuelTime->inHours()
         );
     }
 
@@ -168,8 +168,8 @@ class Route implements \JsonSerializable
             'pax' => $this->getPax()->getValue(),
             'luggage' => $this->getPax()->getValue(),
             'fuelStops' => $this->getFuelStops()->getValue(),
-            'airwayTime' => $this->getAirwayTime() ? $this->getAirwayTime()->asString() : null,
-            'refuelTime' => $this->getRefuelTime() ? $this->getRefuelTime()->asString() : null,
+            'airwayTime' => $this->getAirwayTime() ? $this->getAirwayTime()->inHours() : null,
+            'refuelTime' => $this->getRefuelTime() ? $this->getRefuelTime()->inHours() : null,
         ];
     }
 }
