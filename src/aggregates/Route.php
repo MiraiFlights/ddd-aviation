@@ -15,6 +15,7 @@ class Route implements \JsonSerializable
 
     private ?TimeConvertableInterface $airwayTime = null;
     private ?TimeConvertableInterface $refuelTime = null;
+    private array $countriesOnTheWay = [];
 
     /**
      * Route constructor.
@@ -171,5 +172,23 @@ class Route implements \JsonSerializable
             'airwayTime' => $this->getAirwayTime() ? $this->getAirwayTime()->inHours() : null,
             'refuelTime' => $this->getRefuelTime() ? $this->getRefuelTime()->inHours() : null,
         ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getCountriesOnTheWay(): array
+    {
+        return $this->countriesOnTheWay;
+    }
+
+    /**
+     * @param array $countriesOnTheWay
+     * @return Route
+     */
+    public function setCountriesOnTheWay(array $countriesOnTheWay): Route
+    {
+        $this->countriesOnTheWay = $countriesOnTheWay;
+        return $this;
     }
 }
