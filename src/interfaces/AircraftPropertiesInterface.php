@@ -6,6 +6,9 @@ use ddd\aviation\values\AircraftServiceTime;
 use ddd\aviation\values\ICAO;
 use ddd\aviation\values\Pax;
 
+/**
+ * @deprecated move to adapter
+ */
 interface AircraftPropertiesInterface
 {
     public function getCapacity(): Pax;

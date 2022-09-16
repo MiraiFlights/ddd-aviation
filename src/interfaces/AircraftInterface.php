@@ -2,6 +2,9 @@
 
 namespace ddd\aviation\interfaces;
 
+/**
+ * @deprecated move to adapter
+ */
 interface AircraftInterface
 {
     public function getId();

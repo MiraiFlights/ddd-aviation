@@ -167,7 +167,7 @@ class Route implements \JsonSerializable
             'departureICAO' => $this->getDepartureICAO()->getValue(),
             'arrivalICAO' => $this->getArrivalICAO()->getValue(),
             'pax' => $this->getPax()->getValue(),
-            'luggage' => $this->getPax()->getValue(),
+            'luggage' => $this->getLuggage()->getValue(),
             'fuelStops' => $this->getFuelStops()->getValue(),
             'airwayTime' => $this->getAirwayTime() ? $this->getAirwayTime()->inHours() : null,
             'refuelTime' => $this->getRefuelTime() ? $this->getRefuelTime()->inHours() : null,
