@@ -133,7 +133,7 @@ class FlightDecomposition implements \JsonSerializable
             'route' => $this->getRoute(),
             'aircraft' => $this->getAircraft(),
             'departureDate' => $this->getDepartureDate()->format('Y-m-d H:i:s'),
-            'parkingInterval' => $this->getParkingInterval() ? $this->getParkingInterval()->asString() : null,
+            'parkingInterval' => (isset($this->parkingInterval) && $this->getParkingInterval()) ? $this->getParkingInterval()->asString() : null,
         ];
     }
 }
