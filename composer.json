@@ -1,5 +1,5 @@
 {
-  "name": "rubin/ddd-aviation",
+  "name": "ft/ddd-aviation",
   "description": "DDD aviation values",
   "keywords": ["rubin", "ddd", "domain", "aviation"],
   "type": "library",

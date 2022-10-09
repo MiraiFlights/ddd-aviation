@@ -4,6 +4,9 @@ namespace ddd\aviation\aggregates;
 
 use ddd\aviation\interfaces\AircraftInterface;
 
+/**
+ * @deprecated move to adapter
+ */
 class TripDecomposition implements \JsonSerializable
 {
     /** @var FlightDecomposition[] */

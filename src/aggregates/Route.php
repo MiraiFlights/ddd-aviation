@@ -5,6 +5,9 @@ namespace ddd\aviation\aggregates;
 use ddd\aviation\interfaces\TimeConvertableInterface;
 use ddd\aviation\values;
 
+/**
+ * @deprecated move to adapter
+ */
 class Route implements \JsonSerializable
 {
     private values\ICAO $departureICAO;

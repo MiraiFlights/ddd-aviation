@@ -7,6 +7,9 @@ use ddd\aviation\interfaces\TimeConvertableInterface;
 use ddd\aviation\values\AircraftServiceTime;
 use ddd\aviation\exceptions\RouteNotFoundException;
 
+/**
+ * @deprecated move to adapter
+ */
 class FlightDecomposition implements \JsonSerializable
 {
     private Route $route;
