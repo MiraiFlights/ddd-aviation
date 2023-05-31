@@ -3,7 +3,7 @@
 namespace ddd\aviation\collections;
 
 use ddd\aviation\interfaces\AirportCollectionInterface;
-use ddd\aviation\values\AirportICAO;
+use ddd\aviation\values\ICAO;
 
 class ArrayAirportCollection implements AirportCollectionInterface
 {
@@ -20,9 +20,9 @@ class ArrayAirportCollection implements AirportCollectionInterface
         $this->icaoArray = $icaoArray;
     }
 
-    public function has(AirportICAO $airportICAO): bool
+    public function has(ICAO $icao): bool
     {
-        return in_array($airportICAO->getValue(), $this->icaoArray);
+        return in_array($icao->getValue(), $this->icaoArray);
     }
 
     public function asArray(): array

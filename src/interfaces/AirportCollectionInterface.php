@@ -2,15 +2,15 @@
 
 namespace ddd\aviation\interfaces;
 
-use ddd\aviation\values\AirportICAO;
+use ddd\aviation\values\ICAO;
 
 interface AirportCollectionInterface
 {
     /**
-     * @param AirportICAO $airportICAO
+     * @param ICAO $icao
      * @return bool
      */
-    public function has(AirportICAO $airportICAO): bool;
+    public function has(ICAO $icao): bool;
 
     /**
      * @return string[]
