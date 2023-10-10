@@ -28,7 +28,7 @@ final class AirwayTime extends AbstractDomainValue implements TimeConvertableInt
 
     public function inSeconds(): int
     {
-        return intval($this->value * 60 * 60);
+        return (int)($this->value * 60 * 60);
     }
 
     public function inMinutes(): float
