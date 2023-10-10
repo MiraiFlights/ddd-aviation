@@ -59,7 +59,7 @@ final class AirwayTime extends AbstractDomainValue implements TimeConvertableInt
     public function asString(): string
     {
         $seconds = $this->inSeconds();
-        return sprintf('%02d:%02d:%02d', ($seconds / 3600), ($seconds / 60 % 60), $seconds % 60);
+        return sprintf('%02d:%02d:%02d', (int)($seconds / 3600), (int)($seconds / 60) % 60, $seconds % 60);
     }
 
     public static function fromString(string $value): self
