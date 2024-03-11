@@ -10,8 +10,7 @@
     "ext-json": "*",
     "rubin/ddd-domain": "^1.0",
     "webmozart/assert": "^1.0",
-    "rubin/ddd-uuid": "^1.0",
-    "rubin/ddd-i18n": "^1.0"
+    "rubin/ddd-uuid": "^1.0"
   },
   "autoload" : {
     "psr-4": {
