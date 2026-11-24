@@ -2,8 +2,8 @@
 
 namespace ddd\aviation\values;
 
-use ddd\domain\values\AbstractDomainValue;
 use ddd\aviation\interfaces\TimeConvertableInterface;
+use ddd\domain\values\AbstractDomainValue;
 
 final class AirwayTime extends AbstractDomainValue implements TimeConvertableInterface
 {
@@ -28,7 +28,7 @@ final class AirwayTime extends AbstractDomainValue implements TimeConvertableInt
 
     public function inSeconds(): int
     {
-        return (int)($this->value * 60 * 60);
+        return (int)round($this->value * 60 * 60);
     }
 
     public function inMinutes(): float
@@ -65,7 +65,7 @@ final class AirwayTime extends AbstractDomainValue implements TimeConvertableInt
     public static function fromString(string $value): self
     {
         $parts = explode(':', $value, 3);
-        $seconds = ((int)$parts[0] * 60 + (int)$parts[1]) * 60 + (int)$parts[2];
+        $seconds = ((int)$parts[0] * 60 + (int)($parts[1] ?? 0)) * 60 + (int)($parts[2] ?? 0);
         return self::fromSeconds($seconds);
     }
 }
